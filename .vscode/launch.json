@@ -1,0 +1,17 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Python: Flask (backend_server.py)",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/backend_server.py",
+      "envFile": "${workspaceFolder}/env/.env",
+      "env": {
+        "FLASK_ENV": "development"
+      },
+      "pythonPath":"/Users/dheeraj/Library/Caches/pypoetry/virtualenvs/wrist-wise-E5IcfwIX-py3.13/bin/python",
+      "console": "integratedTerminal"
+    }
+  ]
+}
