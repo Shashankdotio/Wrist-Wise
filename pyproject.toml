@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "wrist-Wise"
+version = "0.1.0"
+description = ""
+authors = ["dheeraj-1204 <dheeraj@mishipay.com>"]
+readme = "README.md"
+package-mode = false
+
+
+[tool.poetry.dependencies]
+python = "^3.13"
+Flask = "^3.0.0"
+Flask-SQLAlchemy = "^3.0.0"
+SQLAlchemy = "^2.0.0"
+
+psycopg2 = "^2.9.5"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.0.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
