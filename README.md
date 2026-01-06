@@ -720,10 +720,9 @@ Wrist-Wise/
 
 If you encounter issues not covered here:
 
-1. Check the [Issues](https://github.com/Shashankdotio/Wrist-Wise/issues) page
-2. Review Docker logs: `docker-compose logs`
-3. Check browser console for frontend errors
-4. Verify all prerequisites are installed
+1. Review Docker logs: `docker-compose logs`
+2. Check browser console for frontend errors
+3. Verify all prerequisites are installed
 
 ---
 
@@ -765,12 +764,13 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ---
 
-## 👤 Author
+## 👤 Authors
 
 **Shashank Kamble**
-
 - GitHub: [@Shashankdotio](https://github.com/Shashankdotio)
-- Project: [Wrist-Wise](https://github.com/Shashankdotio/Wrist-Wise)
+
+**Dheeraj Bangera**
+- GitHub: [@Dheeraj-Bangera](https://github.com/Dheeraj-Bangera)
 
 ---
 
