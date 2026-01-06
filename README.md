@@ -98,12 +98,14 @@ Wrist-Wise features a **modern, clean design** with:
 ### Key UI Components
 
 #### 1. **Status Dashboard**
+![Status Dashboard Screenshot](resources/dashboard.png)
 - API Status indicator (Online/Offline)
 - Total Records count
 - Metadata Entries count
 - Real-time status updates
 
 #### 2. **Upload Section**
+![Upload Section Screenshot](screenshots/upload-section.png)
 - Large drag-and-drop area
 - File type validation (.xml only)
 - File size validation (600MB limit)
@@ -111,18 +113,21 @@ Wrist-Wise features a **modern, clean design** with:
 - Success/Error notifications
 
 #### 3. **Health Statistics Cards**
+![Health Statistics Cards Screenshot](screenshots/health-stats-cards.png)
 - Average Heart Rate (BPM)
 - Total Steps
 - Total Calories Burned
 - Average Sleep Hours
 
 #### 4. **Visualization Charts**
+![Visualization Charts Screenshot](screenshots/visualization-charts.png)
 - **Data Types Distribution**: Doughnut chart with color-coded segments
 - **Activity Timeline**: Dual-axis line chart (Steps + Heart Rate)
 - **Heart Rate Trends**: Multi-line chart (Avg, Min, Max)
 - **Daily Activity Summary**: Colorful bar chart
 
 #### 5. **Health Insights Section**
+![Health Insights Section Screenshot](screenshots/health-insights.png)
 - **Recovery Score Circle**: Large circular display with score and level
 - **Workout Recommendation Card**: 
   - Color-coded recommendation type
@@ -130,6 +135,7 @@ Wrist-Wise features a **modern, clean design** with:
   - Actionable suggestions list
 
 #### 6. **Recent Activity Feed**
+![Recent Activity Feed Screenshot](screenshots/recent-activity-feed.png)
 - Chronological list of recent health events
 - Icons for different activity types
 - Formatted values and timestamps
