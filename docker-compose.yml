@@ -12,6 +12,12 @@ services:
       - db
     volumes:
       - ./:/app
+    deploy:
+      resources:
+        limits:
+          memory: 2G
+        reservations:
+          memory: 1G
   db:
     image: postgres:15
     restart: always

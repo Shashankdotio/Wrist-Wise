@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wrist-Wise - Apple Health Analytics</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/date-fns@2.29.3/index.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-heartbeat"></i>
+                    <h1>Wrist-Wise</h1>
+                </div>
+                <p class="tagline">Apple Health Data Analytics Dashboard</p>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Status Cards -->
+            <div class="status-grid">
+                <div class="status-card">
+                    <div class="card-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>API Status</h3>
+                        <p id="api-status" class="status-text">Checking...</p>
+                    </div>
+                </div>
+
+                <div class="status-card">
+                    <div class="card-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Total Records</h3>
+                        <p id="total-records" class="status-number">-</p>
+                    </div>
+                </div>
+
+                <div class="status-card">
+                    <div class="card-icon">
+                        <i class="fas fa-tags"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Metadata Entries</h3>
+                        <p id="metadata-count" class="status-number">-</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Upload Section -->
+            <div class="upload-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-upload"></i> Upload Apple Health Data</h2>
+                    <p>Upload your Apple Health export file to analyze your health data</p>
+                </div>
+
+                <div class="upload-area" id="upload-area">
+                    <div class="upload-content">
+                        <i class="fas fa-cloud-upload-alt upload-icon"></i>
+                        <h3>Drop your Apple Health export file here</h3>
+                        <p>or <span class="upload-link" onclick="document.getElementById('file-input').click()">browse files</span></p>
+                        <p class="file-info">Supports .xml files up to 600MB</p>
+                    </div>
+                    <input type="file" id="file-input" accept=".xml" style="display: none;">
+                </div>
+
+                <div class="upload-progress" id="upload-progress" style="display: none;">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress-fill"></div>
+                    </div>
+                    <p id="progress-text">Uploading...</p>
+                </div>
+
+                <div class="upload-result" id="upload-result" style="display: none;">
+                    <div class="result-content">
+                        <i class="fas fa-check-circle success-icon"></i>
+                        <h3 id="result-title">Upload Successful!</h3>
+                        <p id="result-message"></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data Visualization Section -->
+            <div class="visualization-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-chart-line"></i> Health Data Analytics</h2>
+                    <p>Interactive visualizations of your health metrics and trends</p>
+                </div>
+
+                <!-- Health Statistics Cards -->
+                <div class="health-stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Heart Rate</h3>
+                            <p class="stat-value" id="avg-heart-rate">-</p>
+                            <p class="stat-label">Average BPM</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-running"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Steps</h3>
+                            <p class="stat-value" id="total-steps">-</p>
+                            <p class="stat-label">Total Steps</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-fire"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Calories</h3>
+                            <p class="stat-value" id="total-calories">-</p>
+                            <p class="stat-label">Burned</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-bed"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Sleep</h3>
+                            <p class="stat-value" id="avg-sleep">-</p>
+                            <p class="stat-label">Hours/Night</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="charts-grid">
+                    <div class="chart-card">
+                        <h3>Health Data Types Distribution</h3>
+                        <div class="chart-container">
+                            <canvas id="data-types-chart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="chart-card">
+                        <h3>Activity Timeline (Last 30 Days)</h3>
+                        <div class="chart-container">
+                            <canvas id="timeline-chart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="chart-card">
+                        <h3>Heart Rate Trends</h3>
+                        <div class="chart-container">
+                            <canvas id="heart-rate-chart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="chart-card">
+                        <h3>Daily Activity Summary</h3>
+                        <div class="chart-container">
+                            <canvas id="activity-chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Health Insights & Recommendations -->
+            <div class="insights-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-lightbulb"></i> Health Insights & Recommendations</h2>
+                    <p>Personalized workout and recovery recommendations based on your health data</p>
+                </div>
+
+                <div class="insights-grid">
+                    <div class="insight-card recovery-card">
+                        <div class="card-header">
+                            <h3><i class="fas fa-heart"></i> Recovery Score</h3>
+                        </div>
+                        <div class="recovery-score" id="recovery-score">
+                            <div class="score-circle">
+                                <span class="score-number" id="score-number">-</span>
+                                <span class="score-label">Recovery</span>
+                            </div>
+                            <div class="score-level" id="score-level">-</div>
+                        </div>
+                    </div>
+
+                    <div class="insight-card recommendation-card">
+                        <div class="card-header">
+                            <h3><i class="fas fa-dumbbell"></i> Workout Recommendation</h3>
+                        </div>
+                        <div class="recommendation-content">
+                            <div class="recommendation-type" id="recommendation-type">-</div>
+                            <div class="recommendation-reason" id="recommendation-reason">-</div>
+                            <div class="recommendation-suggestions" id="recommendation-suggestions">
+                                <!-- Suggestions will be populated here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Activity -->
+            <div class="activity-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-history"></i> Recent Health Activity</h2>
+                    <p>Latest health data entries from your Apple Health</p>
+                </div>
+
+                <div class="activity-list" id="activity-list">
+                    <div class="loading-activity">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        <p>Loading recent activity...</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2024 Wrist-Wise. Built for Apple Health data analysis.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="analytics.js"></script>
+</body>
+</html>

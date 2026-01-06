@@ -1,15 +1,15 @@
-from flask import Flask
+from flask import Flask, send_from_directory
 import os
 from sqlalchemy import text
 
 # Initialize Flask app
-DATABASR_USER= os.getenv("DATABASE_USER", "appleuser")
-DATABASR_PASS= os.getenv("DATABASE_PASS", "applepass")
-DATABASR_HOST= os.getenv("DATABASE_HOST", "localhost")
-DATABASR_PORT= os.getenv("DATABASE_PORT", "5432")
-DATABASR_NAME= os.getenv("DATABASE_NAME", "appledb")
-DATABASE_URL = f"postgresql://{DATABASR_USER}:{DATABASR_PASS}@{DATABASR_HOST}:{DATABASR_PORT}/{DATABASR_NAME}"
-app = Flask(__name__)
+DATABASE_USER = os.getenv("DATABASE_USER", "appleuser")
+DATABASE_PASS = os.getenv("DATABASE_PASS", "applepass")
+DATABASE_HOST = os.getenv("DATABASE_HOST", "db")
+DATABASE_PORT = os.getenv("DATABASE_PORT", "5432")
+DATABASE_NAME = os.getenv("DATABASE_NAME", "appledb")
+DATABASE_URL = f"postgresql://{DATABASE_USER}:{DATABASE_PASS}@{DATABASE_HOST}:{DATABASE_PORT}/{DATABASE_NAME}"
+app = Flask(__name__, static_folder='frontend', static_url_path='')
 app.config["SQLALCHEMY_DATABASE_URI"] = DATABASE_URL
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.config["MAX_CONTENT_LENGTH"] = 600 * 1024 * 1024  # 600 MB limit
@@ -23,6 +23,23 @@ db.init_app(app)
 from routes.router import register_routes
 
 register_routes(app)
+
+# Serve frontend
+@app.route('/')
+def serve_frontend():
+    return send_from_directory('frontend', 'index.html')
+
+@app.route('/<path:filename>')
+def serve_static(filename):
+    return send_from_directory('frontend', filename)
+
+# Create database tables if they don't exist
+with app.app_context():
+    try:
+        db.create_all()
+        print("Database tables created successfully")
+    except Exception as e:
+        print(f"Error creating database tables: {e}")
 
 if __name__ == "__main__":
     try:
