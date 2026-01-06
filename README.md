@@ -105,7 +105,7 @@ Wrist-Wise features a **modern, clean design** with:
 - Real-time status updates
 
 #### 2. **Upload Section**
-![Upload Section Screenshot](screenshots/upload-section.png)
+![Upload Section Screenshot](resources/upload.png)
 - Large drag-and-drop area
 - File type validation (.xml only)
 - File size validation (600MB limit)
@@ -113,21 +113,22 @@ Wrist-Wise features a **modern, clean design** with:
 - Success/Error notifications
 
 #### 3. **Health Statistics Cards**
-![Health Statistics Cards Screenshot](screenshots/health-stats-cards.png)
+![Health Statistics Cards Screenshot](resources/analytics.png)
 - Average Heart Rate (BPM)
 - Total Steps
 - Total Calories Burned
 - Average Sleep Hours
 
 #### 4. **Visualization Charts**
-![Visualization Charts Screenshot](screenshots/visualization-charts.png)
+![Visualization Charts Screenshot](resources/visual.png)
 - **Data Types Distribution**: Doughnut chart with color-coded segments
 - **Activity Timeline**: Dual-axis line chart (Steps + Heart Rate)
 - **Heart Rate Trends**: Multi-line chart (Avg, Min, Max)
 - **Daily Activity Summary**: Colorful bar chart
+![Visualization Screenshot](resources/apple_watch_analysis.png)
 
 #### 5. **Health Insights Section**
-![Health Insights Section Screenshot](screenshots/health-insights.png)
+![Health Insights Section Screenshot](resources/recommendations.png)
 - **Recovery Score Circle**: Large circular display with score and level
 - **Workout Recommendation Card**: 
   - Color-coded recommendation type
@@ -135,7 +136,7 @@ Wrist-Wise features a **modern, clean design** with:
   - Actionable suggestions list
 
 #### 6. **Recent Activity Feed**
-![Recent Activity Feed Screenshot](screenshots/recent-activity-feed.png)
+![Recent Activity Feed Screenshot](resources/recentactivity.png)
 - Chronological list of recent health events
 - Icons for different activity types
 - Formatted values and timestamps
