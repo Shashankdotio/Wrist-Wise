@@ -6,7 +6,7 @@
 
 **A comprehensive web application for analyzing and visualizing Apple Health data with intelligent workout recommendations**
 
-[Features](#-features) • [Screenshots](#-ui-design--screenshots) • [Quick Start](#-quick-start) • [Documentation](#-documentation)
+[Features](#-features) • [Screenshots](#-ui-design--screenshots) • [Quick Start](#-quick-start) 
 
 </div>
 
