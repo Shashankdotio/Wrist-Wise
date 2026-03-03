@@ -36,7 +36,7 @@
 - 📊 **Comprehensive Data Visualization** - Interactive charts and graphs for all your health metrics
 - 🧠 **AI-Powered Insights** - Intelligent recovery score calculation and workout recommendations
 - 📈 **Activity Tracking** - Daily, weekly, and monthly activity summaries
-- 💡 **Personalized Recommendations** - Smart suggestions on whether to workout or rest based on your activity patterns
+- 💡 **Personalized Recommendations** - Smart suggestions on whether to work out or rest based on your activity patterns
 - 🎨 **Beautiful Modern UI** - Clean, responsive design with gradient backgrounds and smooth animations
 
 ### What Makes Wrist-Wise Special?
