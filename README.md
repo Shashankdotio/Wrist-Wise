@@ -792,6 +792,7 @@ This project is open source and available under the [MIT License](LICENSE).
 
 <div align="center">
 
+---
 
 ⭐ Star this repo if you find it helpful!
 
